@@ -1,0 +1,17 @@
+package org.mjulikelion.businessmessenger.dto.login;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import lombok.Getter;
+
+@Getter
+public class LoginDto {
+
+    @NotBlank(message = "이메일이 비어있습니다.")
+    @Pattern(regexp = "^[A-Za-z0-9]+@[A-Za-z0-9]+.[A-Za-z]{2,6}$",
+            message = "이메일 형식이 맞지 않습니다.")
+    private String email;
+
+    @NotBlank(message = "비밀번호가 비었습니다.")
+    private String password;
+}
